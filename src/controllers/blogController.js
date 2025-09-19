@@ -10,10 +10,12 @@ const getBlogs = async (req, res) => {
 
 const createBlog = async (req, res) => {
   const { title, description } = req.body;
+  const userId = req.user._id;
 
   const blog = await Blog.create({
     title,
     description,
+    author: userId,
   });
 
   res.status(201).json(blog);
