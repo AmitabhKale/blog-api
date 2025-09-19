@@ -8,6 +8,14 @@ const getBlogs = async (req, res) => {
   });
 };
 
+const getBlogById = async (req, res) => {
+  const blogId = req.params.blogid;
+
+  const blog = await Blog.findById(blogId);
+
+  res.status(200).json(blog);
+};
+
 const createBlog = async (req, res) => {
   const { title, description } = req.body;
   const userId = req.user._id;
@@ -51,6 +59,7 @@ const deleteBlog = async (req, res) => {
 
 module.exports = {
   getBlogs,
+  getBlogById,
   createBlog,
   updateBlogDetails,
   deleteBlog,
