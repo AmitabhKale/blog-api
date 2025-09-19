@@ -6,6 +6,8 @@ const app = express();
 
 connectDB();
 
+app.use(express.json());
+
 app.use("/api/blogs", blogRouter);
 
 module.exports = app;
