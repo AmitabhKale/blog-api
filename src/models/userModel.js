@@ -25,7 +25,16 @@ const userSchema = mongoose.Schema(
   }
 );
 
-// Instance Method
+// Instance Method -> to remove password while serving user
+userSchema.methods.toJSON = function () {
+  const user = this.toObject();
+
+  delete user.password;
+
+  return user;
+};
+
+// Instance Method -> For generating JWT token
 userSchema.methods.generateJWTtoken = function () {
   const user = this;
 
