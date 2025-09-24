@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "seed-script": "node src/scripts/blogScript.js"
+    "seed-script": "node src/scripts/blogScript.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +18,9 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
+    "jest": "^30.1.3",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.18.1"
+    "mongoose": "^8.18.1",
+    "supertest": "^7.1.4"
   }
 }
