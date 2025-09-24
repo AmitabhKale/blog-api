@@ -31,11 +31,13 @@ const login = async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
+    res.status(401);
     throw new Error("Email and Password are required fields");
   }
 
   const user = await User.findOne({ email });
   if (!user) {
+    res.status(401);
     throw new Error("No User Found ");
   }
 

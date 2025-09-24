@@ -32,11 +32,22 @@ test("Should Register a new user", async () => {
 });
 
 test("Should Login User existing in database", async () => {
+  const res = await request(app).post("/api/users/login").send({
+    email: user.email,
+    password: "kaizoku",
+  });
+
+  expect(res.statusCode).toEqual(200);
+  expect(res.body).toHaveProperty("token");
+  expect(res.body.message).toEqual("Logged In");
+});
+
+test("Should return 401 for invalid user password", async () => {
   await request(app)
     .post("/api/users/login")
     .send({
       email: user.email,
-      password: "kaizoku",
+      password: "wrongpassword",
     })
-    .expect(200);
+    .expect(401);
 });
