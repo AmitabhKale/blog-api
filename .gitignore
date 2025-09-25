@@ -4,3 +4,7 @@ node_modules
 .env
 test.env
 .test.env
+
+
+# Notes & commands
+guide.md
